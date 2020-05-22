@@ -4,6 +4,6 @@ from .views import SignUpPageView
 
 
 urlpatterns = [
-    # Signup
+    # Signup - not used because of allauth
     path('signup/', SignUpPageView.as_view(),name='signup'),
 ]
