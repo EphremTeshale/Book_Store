@@ -23,6 +23,10 @@ class Book(models.Model):
         verbose_name = 'Book'
         verbose_name_plural = 'Books'
 
+        permissions = [
+            ('special_status', 'Can read all books'),
+        ]
+
     def __str__(self):
         """Unicode representation of Book."""
         return self.title
