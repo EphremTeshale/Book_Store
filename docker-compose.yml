@@ -6,7 +6,9 @@ services:
         command: python /code/manage.py runserver 0.0.0.0:8000
         environment:
             - SECRET_KEY=ajf#akoaiexbklieownb^xenaekngseg934an!fh
-            - DEBUG=1
+            - DEBUG=True
+            - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_o6h5mLtUCaVO8mzvYHS1DKhl0057eSWwQ2
+            - STRIPE_TEST_SECRET_KEY=sk_test_WVCs6wvyRjHKWIXF1OTabAEC00Dnz8vRjM
         volumes:
             - .:/code
         ports:
