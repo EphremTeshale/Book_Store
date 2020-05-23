@@ -18,10 +18,10 @@ class Book(models.Model):
     cover = models.ImageField(upload_to='covers/', blank=True)
 
     class Meta:
-        """Meta definition for Book."""
-
-        verbose_name = 'Book'
-        verbose_name_plural = 'Books'
+        
+        indexes = [
+            models.Index(fields=['id'],name='id_index'),
+        ]
 
         permissions = [
             ('special_status', 'Can read all books'),
