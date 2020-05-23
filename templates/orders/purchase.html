@@ -5,4 +5,23 @@
 
 {% block content %}
 <h1>Orders page</h1>
+
+{% if not perms.books.special_status %}
+    <p>Buy for $39.00</p>
+    <form action="{% url 'charge' %}" method="post">
+        {% csrf_token %}
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ stripe_key }}"
+            data-description="All Books"
+            data-amount="3900"
+            data-locale="auto">
+        </script>
+    </form>
+{% else %}
+    <p>You have already purchased acess to all books. You may <a href="{% url 'book_list' %}">access</a> the books.</p>
+{% endif %}
+    
+
+
+
 {% endblock content %}
